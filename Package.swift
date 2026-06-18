@@ -61,6 +61,10 @@ if FileManager.default.fileExists(atPath: ffmpegKitPath + "/Package.swift") {
     ]
 } else {
     package.dependencies += [
-        .package(url: "https://github.com/kingslay/FFmpegKit.git", from: "6.1.3"),
+        // Pinned to a fork at the commit that fixes the invalid (underscore-containing)
+        // CFBundleIdentifier in libshaderc_combined.framework, which Xcode 26's stricter
+        // validation rejects. Upstream merged the fix (kingslay/FFmpegKit#45) but hasn't
+        // cut a new tagged release yet - switch back to the official 6.1.3+ tag once it does.
+        .package(url: "https://github.com/am-agents/FFmpegKit.git", revision: "c32be9bfb628042737ad3ef622e930c5c7b15954"),
     ]
 }
