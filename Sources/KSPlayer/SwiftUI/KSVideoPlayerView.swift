@@ -72,6 +72,8 @@ public struct KSVideoPlayerView: View {
                 controllerView(playerWidth: proxy.size.width)
                 #if os(tvOS)
                     .ignoresSafeArea()
+                #elseif os(iOS)
+                    .ignoresSafeArea(edges: .top)
                 #endif
                 #if os(tvOS)
                 if isDropdownShow {
