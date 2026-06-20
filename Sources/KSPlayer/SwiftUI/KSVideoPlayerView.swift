@@ -404,11 +404,6 @@ struct VideoControllerView: View {
             #else
             HStack {
                 #if !os(xrOS)
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "x.circle.fill")
-                }
                 #if !os(tvOS)
                 if config.playerLayer?.player.allowsExternalPlayback == true {
                     AirPlayView().fixedSize()
